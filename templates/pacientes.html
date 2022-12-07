@@ -1,0 +1,65 @@
+{% extends "plantilla.html" %}
+
+{% block titulo %}
+  Gestión de pacientes
+{% endblock titulo %}
+
+{% block contenido %}
+    <div class="row">
+        <div class="col">
+            <table class="table table-success table-striped">
+                <thead>
+                    <tr>
+                        <th colspan="4" style="text-align: center;">Listado de pacientes afiliados</th>
+                    </tr>
+                    <tr>
+                        <th>Código</th>
+                        <th>Nombre Completo</th>
+                        <th>Correo Electrónico</th>
+                        <th>Teléfono</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col bg-dark text-white" style="padding: 10px;">
+            <h3>Registro Pacientes Nuevos</h3>
+            <form action="">
+                <div class="mb-3">
+                    <label for="exampleInputCodigo" class="form-label">Código</label>
+                    <input type="text" class="form-control" id="exampleInputcodigo" aria-describedby="codigoHelp">
+                    <div id="codigoHelp" class="form-text">Código del paciente</div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputNombre" class="form-label">Nombres</label>
+                    <input type="text" class="form-control" id="exampleInputNombre" aria-describedby="codigoNombre">
+                    <div id="codigoNombre" class="form-text">Nombre del paciente</div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputNombre" class="form-label">Apellidos</label>
+                    <input type="text" class="form-control" id="exampleInputApellidos" aria-describedby="codigoApellidos">
+                    <div id="codigoApellidos" class="form-text">Apellidos del paciente</div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail" class="form-label">Correo Electrónico</label>
+                    <input type="email" class="form-control" id="exampleInputEmail" aria-describedby="codigoEmail">
+                    <div id="codigoEmail" class="form-text">Correo electrónico del paciente</div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputTelefono" class="form-label">Teléfono</label>
+                    <input type="text" class="form-control" id="exampleInputTelefono" aria-describedby="codigoTelefono">
+                    <div id="codigoTelefono" class="form-text">Teléfono del paciente</div>
+                  </div>
+                  <div style="text-align: end;">
+                    <button type="submit" class="btn btn-primary">Registrar Paciente</button>
+                  </div>
+
+            </form>
+
+        </div>
+
+    </div>
+{% endblock contenido %}
