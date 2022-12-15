@@ -5,6 +5,13 @@
 {% endblock titulo %}
 
 {% block contenido %}
+
+{% if modelo.error %}
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+  {{ modelo.error }}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endif %}
     <div class="row">
         <div class="col">
             <table class="table table-success table-striped">
@@ -20,37 +27,45 @@
                     </tr>
                 </thead>
                 <tbody>
-
+                    {% for paciente in modelo.pacientes  %}
+                    <tr>
+                      <th>{{paciente.0}}</th>
+                      <th>{{paciente.1}} {{paciente.2}}</th>
+                      <th>{{paciente.3}}</th>
+                      <th>{{paciente.4}}</th>
+                    </tr>
+                      
+                    {% endfor %}
                 </tbody>
             </table>
         </div>
 
         <div class="col bg-dark text-white" style="padding: 10px;">
             <h3>Registro Pacientes Nuevos</h3>
-            <form action="">
+            <form action="/admin/pacientes/nuevo" method="post">
                 <div class="mb-3">
                     <label for="exampleInputCodigo" class="form-label">Código</label>
-                    <input type="text" class="form-control" id="exampleInputcodigo" aria-describedby="codigoHelp">
+                    <input type="text" class="form-control" id="exampleInputcodigo" aria-describedby="codigoHelp" name="codigo">
                     <div id="codigoHelp" class="form-text">Código del paciente</div>
                   </div>
                   <div class="mb-3">
                     <label for="exampleInputNombre" class="form-label">Nombres</label>
-                    <input type="text" class="form-control" id="exampleInputNombre" aria-describedby="codigoNombre">
+                    <input type="text" class="form-control" id="exampleInputNombre" aria-describedby="codigoNombre" name="nombre">
                     <div id="codigoNombre" class="form-text">Nombre del paciente</div>
                   </div>
                   <div class="mb-3">
                     <label for="exampleInputNombre" class="form-label">Apellidos</label>
-                    <input type="text" class="form-control" id="exampleInputApellidos" aria-describedby="codigoApellidos">
+                    <input type="text" class="form-control" id="exampleInputApellidos" aria-describedby="codigoApellidos" name="apellidos">
                     <div id="codigoApellidos" class="form-text">Apellidos del paciente</div>
                   </div>
                   <div class="mb-3">
                     <label for="exampleInputEmail" class="form-label">Correo Electrónico</label>
-                    <input type="email" class="form-control" id="exampleInputEmail" aria-describedby="codigoEmail">
+                    <input type="email" class="form-control" id="exampleInputEmail" aria-describedby="codigoEmail" name="correo">
                     <div id="codigoEmail" class="form-text">Correo electrónico del paciente</div>
                   </div>
                   <div class="mb-3">
                     <label for="exampleInputTelefono" class="form-label">Teléfono</label>
-                    <input type="text" class="form-control" id="exampleInputTelefono" aria-describedby="codigoTelefono">
+                    <input type="text" class="form-control" id="exampleInputTelefono" aria-describedby="codigoTelefono" name="telefono">
                     <div id="codigoTelefono" class="form-text">Teléfono del paciente</div>
                   </div>
                   <div style="text-align: end;">
